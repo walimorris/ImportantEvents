@@ -18,7 +18,7 @@ public class HomeController {
 
     @RequestMapping("/")
     public String listTaks(Model model) {
-        model.addAttribute("task", taskRepository.findAll());
+        model.addAttribute("tasks", taskRepository.findAll());
         return "list";
     }
 

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Task Form</title>
+</head>
+<body>
+<h1>To-do List</h1>
+<a href="/add">Add a Task</a><br/>
+<div th:each="task : ${tasks}">
+    <h4 th:inline="text">Name: [[${task.name}]]<br/> Type: [[${task.type}]]<br/> Date: [[${task.date}]]<br/></h4>
+    <p th:text="${task.description}"></p>
+</div>
+</body>
+</html>
