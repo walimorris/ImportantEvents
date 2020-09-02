@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>Task Form</h1>
-<form action="#" th:action="@{/process}" th:object="${task}" method="post">
+<form th:action="@{/process}" th:object="${task}" method="post">
     Task Name: <input type="text" th:field="*{name}" />
     <span th:if="${#fields.hasErrors('name')}" th:error="*{name}"></span><br/>
     Task Type: <input type="text" th:field="*{type}" />
