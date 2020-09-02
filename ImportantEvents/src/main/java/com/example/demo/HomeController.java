@@ -41,7 +41,7 @@ public class HomeController {
     @RequestMapping("/detail/{id}")
     public String showTask(@PathVariable("id") Long id, Model model) {
         model.addAttribute("task", taskRepository.findById(id).get());
-        return "showTasks";
+        return "showtasks";
     }
 
     @RequestMapping("/update/{id}")

@@ -2,14 +2,28 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>Task Form</title>
+    <title>To-do List</title>
 </head>
 <body>
 <h1>To-do List</h1>
 <a href="/add">Add a Task</a><br/>
-<div th:each="task : ${tasks}">
-    <h4 th:inline="text">Name: [[${task.name}]]<br/> Type: [[${task.type}]]<br/> Date: [[${task.date}]]<br/></h4>
-    <p th:text="${task.description}"></p>
-</div>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Date</th>
+        <th>Action</th>
+    </tr>
+    <tr th:each="task : ${tasks}">
+        <td th:text="${task.name}"></td>
+        <td th:text="${task.type}"></td>
+        <td th:text="${task.date}"></td>
+        <td>
+            <a th:href="@{/update/{id}(id=${task.id})}">Update</a>
+            <a th:href="@{/detail/{id}(id=${task.id})}">Details</a>
+            <a th:href="@{/delete/{id}(id=${task.id})}">Delete</a>
+        </td>
+    </tr>
+</table>
 </body>
 </html>
