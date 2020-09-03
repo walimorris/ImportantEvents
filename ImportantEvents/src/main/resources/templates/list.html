@@ -4,7 +4,7 @@
     <meta charset="UTF-8"/>
     <title>To-do List</title>
 </head>
-<body>
+<body style="background-color:powderblue;">
 <h1>To-do List</h1>
 <a href="/add">Add a Task</a><br/>
 <table>
@@ -25,5 +25,8 @@
         </td>
     </tr>
 </table>
+<footer>
+    <div th:insert="footer :: copy "></div>
+</footer>
 </body>
 </html>
