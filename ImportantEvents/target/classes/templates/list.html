@@ -1,29 +1,33 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8"/>
     <title>To-do List</title>
 </head>
-<body>
-<h1>To-do List</h1>
-<a href="/add">Add a Task</a><br/>
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Date</th>
-        <th>Action</th>
-    </tr>
-    <tr th:each="task : ${tasks}">
-        <td th:text="${task.name}"></td>
-        <td th:text="${task.type}"></td>
-        <td th:text="${task.date}"></td>
-        <td>
-            <a th:href="@{/update/{id}(id=${task.id})}">Update</a>
-            <a th:href="@{/detail/{id}(id=${task.id})}">Details</a>
-            <a th:href="@{/delete/{id}(id=${task.id})}">Delete</a>
-        </td>
-    </tr>
-</table>
+<body style="background-color:powderblue; text-align: center; height: 100vh; width: 100vw; margin: 0; padding: 0">
+  <header>
+      <h1>To-do List</h1>
+  </header>
+  <a href="/add">Add a Task</a><br/>
+  <table>
+      <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Date</th>
+          <th>Action</th>
+      </tr>
+      <tr th:each="task : ${tasks}">
+          <td th:text="${task.name}"></td>
+          <td th:text="${task.type}"></td>
+          <td th:text="${task.date}"></td>
+          <td>
+              <a th:href="@{/update/{id}(id=${task.id})}">Update</a>
+              <a th:href="@{/detail/{id}(id=${task.id})}">Details</a>
+              <a th:href="@{/delete/{id}(id=${task.id})}">Delete</a>
+          </td>
+      </tr>
+  </table>
+  <footer style="position:fixed; width: 100%; bottom: 0;" th:insert="footer :: copy "></footer>
 </body>
 </html>
